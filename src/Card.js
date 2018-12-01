@@ -16,7 +16,7 @@ class Card extends Component {
       if (this.props.cardInfo.stats[currStat] > 0.5) {
         classString = 'high';
       }
-      return <li><span className="year">{currStat}</span> <span className="percentage" id={classString}>{this.props.cardInfo.stats[currStat]}</span></li>
+      return <li id={classString}><span className="year">{currStat}</span> <span className="percentage" id={classString}>{this.props.cardInfo.stats[currStat]}</span></li>
   
     })
     return result
@@ -24,15 +24,25 @@ class Card extends Component {
 
   handleChange = () => {
     this.props.displaySelected(this.props.cardInfo)
-    // if (this.props.compareCard1 === null || this.props.compareCard2 === null )
-    this.setState({
-      selected: !this.state.selected
+    this.props.updateSelectedCards(this.props.cardInfo)
+    if (this.props.selectedCards.includes(this.props.cardInfo)) {
+      this.setState({
+        selected: true
       })
+    } else {
+      this.setState({
+        selected: false
+      })
+    }
+    // if (this.props.compareCard1 === null || this.props.compareCard2 === null )
+    // this.setState({
+    //   selected: !this.state.selected
+    //   })
     // if (this.props.compareCard1 !== null && this.props.compareCard2 !== null) {
     //   this.setState({
     //     selected: false
     //   })
-    // }
+  // }
     
   }
 

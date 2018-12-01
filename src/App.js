@@ -14,7 +14,8 @@ class App extends Component {
       data: {},
       compareCard1: null,
       compareCard2: null,
-      middleCard: null
+      middleCard: null,
+      selectedCards: []
   }
 }
 
@@ -51,10 +52,24 @@ class App extends Component {
   }
 }
 
-compareCards = (card1, card2) => {
-  const districtRepository = new DistrictRepository(Data);
-  const comparedAvg = districtRepository.compareDistrictAverages(card1, card2);
-  return comparedAvg;
+  updateSelectedCards = (card) => {
+    if (this.state.selectedCards.length < 2) {
+      this.setState({
+        selectedCards: [...this.state.selectedCards, card]
+      })
+    } else {
+      let spliced = this.state.selectedCards.splice(this.state.selectedCards[0], 1)
+      this.setState({
+        selectedCards: spliced
+      })
+    }
+
+}
+
+  compareCards = (card1, card2) => {
+    const districtRepository = new DistrictRepository(Data);
+    const comparedAvg = districtRepository.compareDistrictAverages(card1, card2);
+    return comparedAvg;
 }
 
   render() {
@@ -63,7 +78,7 @@ compareCards = (card1, card2) => {
         <h1 className="header">HeadCount <span className="num">2.0</span></h1>
         <Search displaySearch={this.displaySearch} />
         <CompareCardContainer appState={this.state} compareCards={this.compareCards} />
-        <CardContainer data={this.state.data} displaySelected={this.displaySelected} campareCard1={this.state.compareCard1} campareCard2={this.state.compareCard2}/>
+        <CardContainer data={this.state.data} displaySelected={this.displaySelected} campareCard1={this.state.compareCard1} campareCard2={this.state.compareCard2} updateSelectedCards={this.updateSelectedCards} selectedCards={this.state.selectedCards}/>
       </div>
 
     );
