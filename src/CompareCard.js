@@ -17,9 +17,11 @@ const CompareCard = (props) => {
       <h1 className="location">{keys[1]}:</h1>
       <h2 className="location-num">{values[1]}</h2>
     </div>
-
   )
+}
 
+CompareCard.PropTypes = {
+  cardInfo: PropTypes.object
 }
 
 

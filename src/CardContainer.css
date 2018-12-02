@@ -5,3 +5,8 @@
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
+.selected {
+  border: 5px solid #337AB7;
+  box-shadow: none;
+}
