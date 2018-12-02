@@ -13,6 +13,7 @@ export default class DistrictRepository {
         }
         obj[upperCaseLoc].stats = {...obj[upperCaseLoc].stats, [currElement.TimeFrame] : value };
         obj[upperCaseLoc].location = upperCaseLoc;
+        obj[upperCaseLoc].selected = false;
       return obj;
     }, {})
   }
