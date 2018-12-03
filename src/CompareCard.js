@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './CompareCard.css';
+import './index.css';
 
 const CompareCard = (props) => {
   let keys = Object.keys(props.cardInfo)
@@ -20,7 +20,7 @@ const CompareCard = (props) => {
   )
 }
 
-CompareCard.PropTypes = {
+CompareCard.propTypes = {
   cardInfo: PropTypes.object
 }
 

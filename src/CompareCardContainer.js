@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card.js';
 import CompareCard from './CompareCard.js';
 import PropTypes from 'prop-types'
-import './CompareCardContainer.css';
+import './index.css';
 
 const CompareCardContainer = (props) => {
   let card1;
@@ -10,10 +10,10 @@ const CompareCardContainer = (props) => {
   let middleCard;
 
   if(props.compareCard1 !== null) {
-    card1= <Card cardInfo={props.compareCard1} />
+    card1= <Card cardInfo={props.compareCard1} displaySelected={props.displaySelected} />
   }
   if(props.compareCard2 !== null) {
-    card2= <Card cardInfo={props.compareCard2} />
+    card2= <Card cardInfo={props.compareCard2} displaySelected={props.displaySelected} />
   }
   if(props.compareCard1 !== null && props.compareCard2 !== null) {
     let object = props.compareCards(props.compareCard1.location, props.compareCard2.location)

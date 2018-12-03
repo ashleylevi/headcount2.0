@@ -3,7 +3,7 @@ import Data from './data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js'
-import './App.css';
+import './index.css';
 import CompareCardContainer from './CompareCardContainer.js';
 
 
@@ -50,10 +50,6 @@ class App extends Component {
   }
 }
 
-// updateSelected = () => {
-
-// }
-
 compareCards = (card1, card2) => {
   const districtRepository = new DistrictRepository(Data);
   const comparedAvg = districtRepository.compareDistrictAverages(card1, card2);
@@ -65,13 +61,13 @@ compareCards = (card1, card2) => {
       <div>
         <h1 className="header">HeadCount <span className="num">2.0</span></h1>
         <Search displaySearch={this.displaySearch} />
-        <CompareCardContainer data={this.state.data} compareCard1={this.state.compareCard1} compareCard2={this.state.compareCard2} compareCards={this.compareCards} />
+        <CompareCardContainer data={this.state.data} compareCard1={this.state.compareCard1} compareCard2={this.state.compareCard2} compareCards={this.compareCards}
+        displaySelected={this.displaySelected} />
         <CardContainer data={this.state.data} displaySelected={this.displaySelected} compareCard1={this.state.compareCard1} compareCard2={this.state.compareCard2}/>
       </div>
-
     );
   
-}
+  }
 }
 
 

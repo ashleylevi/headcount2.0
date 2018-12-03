@@ -1,3 +1,10 @@
+@import url('./styles/App.css');
+@import url('./styles/Card.css');
+@import url('./styles/CardContainer.css');
+@import url('./styles/CompareCard.css');
+@import url('./styles/CompareCardContainer.css');
+@import url('./styles/Search.css');
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
